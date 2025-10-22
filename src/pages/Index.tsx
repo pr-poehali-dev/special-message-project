@@ -8,6 +8,7 @@ interface Particle {
   vx: number;
   vy: number;
   rotation: number;
+  rotationSpeed: number;
   size: number;
   color: string;
   shape: string;
@@ -36,12 +37,13 @@ const Index = () => {
   const createFireworks = () => {
     setParticles([]);
     const colors = ['#e29563', '#ffd700', '#ffffff', '#ff6b6b', '#4ecdc4'];
-    const totalParticles = 100;
+    const totalParticles = 50;
     
     for (let i = 0; i < totalParticles; i++) {
       setTimeout(() => {
         const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 180 + 150;
+        const speed = Math.random() * 250 + 200;
+        const spiralDirection = Math.random() > 0.5 ? 1 : -1;
         
         setParticles(prev => [...prev, {
           id: Date.now() + i + Math.random() * 10000,
@@ -50,11 +52,12 @@ const Index = () => {
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
           rotation: Math.random() * 360,
-          size: Math.random() * 20 + 10,
+          rotationSpeed: (Math.random() * 15 + 10) * spiralDirection,
+          size: Math.random() * 25 + 15,
           color: colors[Math.floor(Math.random() * colors.length)],
           shape: 'spark'
         }]);
-      }, i * 50);
+      }, i * 100);
     }
   };
 
@@ -72,6 +75,7 @@ const Index = () => {
           vx: (Math.random() - 0.5) * 30,
           vy: Math.random() * 60 + 50,
           rotation: Math.random() * 360,
+          rotationSpeed: Math.random() * 8 + 5,
           size: Math.random() * 35 + 30,
           color: colors[Math.floor(Math.random() * colors.length)],
           shape: 'star'
@@ -85,13 +89,19 @@ const Index = () => {
 
     const interval = setInterval(() => {
       setParticles(prev => 
-        prev.map(p => ({
-          ...p,
-          x: p.x + p.vx * 0.016,
-          y: p.y + p.vy * 0.016,
-          vy: p.vy + (p.shape === 'star' ? 40 : 280) * 0.016,
-          rotation: p.rotation + (p.shape === 'star' ? 8 : 3)
-        })).filter(p => p.y < 130 && p.y > -10)
+        prev.map(p => {
+          const newVx = p.shape === 'spark' ? p.vx + (Math.sin(p.rotation * Math.PI / 180) * 3) : p.vx;
+          const newVy = p.vy + (p.shape === 'star' ? 40 : 250) * 0.016;
+          
+          return {
+            ...p,
+            x: p.x + newVx * 0.016,
+            y: p.y + newVy * 0.016,
+            vx: newVx,
+            vy: newVy,
+            rotation: p.rotation + p.rotationSpeed
+          };
+        }).filter(p => p.y < 130 && p.y > -10)
       );
     }, 16);
 
