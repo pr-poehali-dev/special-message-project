@@ -94,13 +94,13 @@ const Index = () => {
       setParticles(prev => 
         prev.map(p => {
           if (p.shape === 'spark') {
-            const newSpiralAngle = p.spiralAngle + 0.15;
-            const spiralRadius = 8;
+            const newSpiralAngle = p.spiralAngle + 0.25;
+            const spiralRadius = 15;
             const spiralX = Math.cos(newSpiralAngle) * spiralRadius;
             const spiralY = Math.sin(newSpiralAngle) * spiralRadius;
             
-            const newVx = p.vx * 0.99;
-            const newVy = p.vy * 0.99 + 200 * 0.016;
+            const newVx = p.vx * 0.985;
+            const newVy = p.vy * 0.985 + 180 * 0.016;
             
             return {
               ...p,
@@ -109,7 +109,7 @@ const Index = () => {
               vx: newVx,
               vy: newVy,
               spiralAngle: newSpiralAngle,
-              rotation: p.rotation + p.rotationSpeed
+              rotation: p.rotation + p.rotationSpeed * 1.5
             };
           } else {
             const newVy = p.vy + 40 * 0.016;
