@@ -191,7 +191,7 @@ const Index = () => {
                 <div className="text-center space-y-4 sm:space-y-6">
                   <div className="pt-4 sm:pt-8 md:pt-12"></div>
                   <h1 
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight px-1 sm:px-2 uppercase"
+                    className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight px-1 sm:px-2 uppercase break-words"
                     style={{ 
                       fontFamily: "'Playfair Display', serif",
                       background: 'linear-gradient(90deg, #9d4848 0%, #ffd700 25%, #2d1810 50%, #c85a5a 75%, #ffd700 100%)',
@@ -199,10 +199,12 @@ const Index = () => {
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
                       textShadow: 'none',
-                      filter: 'drop-shadow(2px 2px 4px rgba(255,255,255,0.9)) drop-shadow(0 0 15px rgba(255,255,255,0.6))'
+                      filter: 'drop-shadow(2px 2px 4px rgba(255,255,255,0.9)) drop-shadow(0 0 15px rgba(255,255,255,0.6))',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word'
                     }}
                   >
-                    Ты звезда и выиграла подарок от&nbsp;Кода&nbsp;публичности!
+                    Ты звезда и выиграла подарок от Кода публичности!
                   </h1>
 
                   <div className="pt-4 sm:pt-8">
