@@ -38,28 +38,35 @@ const Index = () => {
   const createFireworks = () => {
     setParticles([]);
     const colors = ['#e29563', '#ffd700', '#ffffff', '#ff6b6b', '#4ecdc4'];
-    const totalParticles = 50;
+    const totalWaves = 5;
+    const particlesPerWave = 40;
     
-    for (let i = 0; i < totalParticles; i++) {
+    for (let wave = 0; wave < totalWaves; wave++) {
       setTimeout(() => {
-        const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 250 + 200;
-        const spiralDirection = Math.random() > 0.5 ? 1 : -1;
+        const newParticles: Particle[] = [];
         
-        setParticles(prev => [...prev, {
-          id: Date.now() + i + Math.random() * 10000,
-          x: 50,
-          y: 50,
-          vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed,
-          rotation: Math.random() * 360,
-          rotationSpeed: (Math.random() * 12 + 8) * spiralDirection,
-          spiralAngle: 0,
-          size: Math.random() * 25 + 15,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          shape: 'spark'
-        }]);
-      }, i * 100);
+        for (let i = 0; i < particlesPerWave; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = Math.random() * 280 + 220;
+          const spiralDirection = Math.random() > 0.5 ? 1 : -1;
+          
+          newParticles.push({
+            id: Date.now() + wave * 1000 + i + Math.random() * 10000,
+            x: 50,
+            y: 50,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            rotation: Math.random() * 360,
+            rotationSpeed: (Math.random() * 12 + 8) * spiralDirection,
+            spiralAngle: 0,
+            size: Math.random() * 22 + 12,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            shape: 'spark'
+          });
+        }
+        
+        setParticles(prev => [...prev, ...newParticles]);
+      }, wave * 1000);
     }
   };
 
