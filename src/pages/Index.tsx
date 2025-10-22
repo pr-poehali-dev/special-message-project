@@ -175,7 +175,7 @@ const Index = () => {
               onClick={handleSealClick}
             >
               <img 
-                src="https://cdn.poehali.dev/files/7d89ea53-68de-4c78-8e71-728ba4aca4b4.jpg"
+                src="https://cdn.poehali.dev/projects/8e22820f-a067-420f-bc48-a499e65c5a34/files/581e6ee3-f05d-4ede-9a39-de79c4123045.jpg"
                 alt="Конверт с восковой печатью"
                 className="w-screen h-screen object-cover"
               />
