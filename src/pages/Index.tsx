@@ -191,10 +191,18 @@ const Index = () => {
                 <div className="text-center space-y-6">
                   <div className="pt-8 md:pt-12"></div>
                   <h1 
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#2d1810] leading-tight px-2"
-                    style={{ fontFamily: "'Playfair Display', serif", textShadow: '3px 3px 8px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.6)' }}
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight px-2 uppercase"
+                    style={{ 
+                      fontFamily: "'Playfair Display', serif",
+                      background: 'linear-gradient(90deg, #9d4848 0%, #ffd700 25%, #2d1810 50%, #c85a5a 75%, #ffd700 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      textShadow: 'none',
+                      filter: 'drop-shadow(3px 3px 8px rgba(255,255,255,0.9)) drop-shadow(0 0 20px rgba(255,255,255,0.6))'
+                    }}
                   >
-                    Ты звезда и выиграла подарок от Кода публичности!
+                    Ты звезда и выиграла подарок от&nbsp;Кода&nbsp;публичности!
                   </h1>
 
                   <div className="pt-8">
