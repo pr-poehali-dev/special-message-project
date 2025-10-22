@@ -198,8 +198,8 @@ const Index = () => {
                   </div>
                   
                   <h1 
-                    className="text-4xl md:text-5xl lg:text-6xl font-black text-[#2d1810] leading-tight"
-                    style={{ fontFamily: "'Playfair Display', serif", textShadow: '2px 2px 4px rgba(255,255,255,0.5)' }}
+                    className="text-5xl md:text-6xl lg:text-7xl font-black text-[#2d1810] leading-tight"
+                    style={{ fontFamily: "'Playfair Display', serif", textShadow: '3px 3px 8px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.6)' }}
                   >
                     Ты звезда и выиграла подарок от Кода публичности!
                   </h1>
