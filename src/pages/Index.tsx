@@ -18,14 +18,6 @@ const Index = () => {
             }}
           >
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-            
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center animate-pulse">
-                <p className="text-white text-2xl md:text-4xl font-bold drop-shadow-2xl bg-black/30 px-8 py-4 rounded-lg backdrop-blur-sm">
-                  Нажмите, чтобы открыть послание
-                </p>
-              </div>
-            </div>
           </div>
         ) : (
           <div className="min-h-screen bg-background flex items-center justify-center p-4 animate-fade-in">
