@@ -196,16 +196,8 @@ const Index = () => {
                   >
                     Ты звезда и выиграла подарок от Кода публичности!
                   </h1>
-                  
-                  <div className="py-4">
-                    <img 
-                      src="https://cdn.poehali.dev/files/cff17d45-d481-4e48-9d43-0fa558a03283.jpeg" 
-                      alt="Подарок" 
-                      className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 mx-auto"
-                    />
-                  </div>
 
-                  <div className="pt-4">
+                  <div className="pt-8">
                     <Button 
                       onClick={handleClose}
                       className="relative bg-gradient-to-r from-[#ffd700] via-[#ffed4e] to-[#ffd700] hover:from-[#ffed4e] hover:via-[#ffd700] hover:to-[#ffed4e] text-[#2d1810] px-8 sm:px-12 md:px-16 py-6 sm:py-8 md:py-10 text-xl sm:text-2xl md:text-3xl font-black shadow-[0_0_50px_rgba(255,215,0,1),0_0_100px_rgba(255,215,0,0.5)] transform hover:scale-110 transition-all duration-300 border-4 border-[#9d4848] rounded-full"
