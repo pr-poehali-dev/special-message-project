@@ -49,9 +49,9 @@ const Index = () => {
     const fragments: Particle[] = [];
     const colors = ['#9d4848', '#c14f4f'];
     
-    for (let i = 0; i < 15; i++) {
-      const angle = (Math.PI * 2 * i) / 15;
-      const speed = Math.random() * 100 + 50;
+    for (let i = 0; i < 20; i++) {
+      const angle = (Math.PI * 2 * i) / 20;
+      const speed = Math.random() * 150 + 100;
       
       fragments.push({
         id: Date.now() + i,
@@ -60,7 +60,7 @@ const Index = () => {
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
         rotation: Math.random() * 360,
-        size: Math.random() * 10 + 5,
+        size: Math.random() * 20 + 15,
         color: colors[Math.floor(Math.random() * colors.length)],
         shape: 'fragment'
       });
@@ -73,9 +73,9 @@ const Index = () => {
     const fireworks: Particle[] = [];
     const colors = ['#e29563', '#ffd700', '#ffffff'];
     
-    for (let i = 0; i < 60; i++) {
-      const angle = (Math.PI * 2 * i) / 60;
-      const speed = Math.random() * 200 + 200;
+    for (let i = 0; i < 80; i++) {
+      const angle = (Math.PI * 2 * i) / 80;
+      const speed = Math.random() * 250 + 250;
       
       fireworks.push({
         id: Date.now() + i + 1000,
@@ -84,7 +84,7 @@ const Index = () => {
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
         rotation: 0,
-        size: Math.random() * 8 + 4,
+        size: Math.random() * 12 + 8,
         color: colors[Math.floor(Math.random() * colors.length)],
         shape: 'spark'
       });
@@ -97,21 +97,21 @@ const Index = () => {
     const stars: Particle[] = [];
     const colors = ['#ffd700', '#e29563', '#ffffff'];
     
-    for (let i = 0; i < 30; i++) {
-      stars.push({
-        id: Date.now() + i + 2000,
-        x: Math.random() * 100,
-        y: -10,
-        vx: (Math.random() - 0.5) * 50,
-        vy: Math.random() * 100 + 50,
-        rotation: Math.random() * 360,
-        size: Math.random() * 20 + 15,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        shape: 'star'
-      });
+    for (let i = 0; i < 40; i++) {
+      setTimeout(() => {
+        setParticles(prev => [...prev, {
+          id: Date.now() + i + Math.random() * 1000,
+          x: Math.random() * 100,
+          y: -10,
+          vx: (Math.random() - 0.5) * 50,
+          vy: Math.random() * 80 + 40,
+          rotation: Math.random() * 360,
+          size: Math.random() * 25 + 20,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          shape: 'star'
+        }]);
+      }, i * 50);
     }
-    
-    setParticles(stars);
   };
 
   const animateEnvelopeToss = () => {
@@ -172,7 +172,7 @@ const Index = () => {
       {particles.map(p => (
         <div
           key={p.id}
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none z-50"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
@@ -182,7 +182,8 @@ const Index = () => {
             height: p.shape !== 'star' ? `${p.size}px` : undefined,
             backgroundColor: p.shape !== 'star' ? p.color : undefined,
             color: p.shape === 'star' ? p.color : undefined,
-            borderRadius: p.shape === 'fragment' ? '20%' : p.shape === 'spark' ? '50%' : undefined,
+            borderRadius: p.shape === 'fragment' ? '30%' : p.shape === 'spark' ? '50%' : undefined,
+            boxShadow: p.shape === 'spark' ? `0 0 10px ${p.color}` : undefined,
           }}
         >
           {p.shape === 'star' && '⭐'}
