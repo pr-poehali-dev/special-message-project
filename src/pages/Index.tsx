@@ -186,7 +186,7 @@ const Index = () => {
         <div className="absolute inset-0 flex items-center justify-center p-4 animate-fade-in overflow-y-auto bg-cover bg-center" style={{ backgroundImage: 'url(https://cdn.poehali.dev/files/a32cc27b-a241-4470-b1e2-04ad4cb6634b.jpg)' }}>
           <div className="w-full max-w-3xl py-8">
             <div className="relative">
-              <div className="p-8 md:p-16 shadow-2xl relative z-10 border-4 border-[#9d4848]/30 bg-cover bg-center" style={{ backgroundImage: 'url(https://cdn.poehali.dev/files/a32cc27b-a241-4470-b1e2-04ad4cb6634b.jpg)' }}>
+              <div className="p-8 md:p-16 shadow-2xl relative z-10 border-4 border-[#9d4848]/30">
                 <div className="text-center space-y-8">
                   <div className="mb-4 animate-bounce">
                     <img 
@@ -197,8 +197,8 @@ const Index = () => {
                   </div>
                   
                   <h1 
-                    className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#4a3428] leading-tight"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
+                    className="text-4xl md:text-5xl lg:text-6xl font-black text-[#9d4848] leading-tight drop-shadow-lg"
+                    style={{ fontFamily: "'Playfair Display', serif", textShadow: '3px 3px 6px rgba(0,0,0,0.3)' }}
                   >
                     Ты звезда и выиграла подарок от Кода публичности!
                   </h1>
@@ -215,7 +215,7 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="mt-12 bg-[#f5e6d3] p-8 shadow-xl border-2 border-[#9d4848]/20">
+            <div className="mt-12 p-8 shadow-xl border-4 border-[#9d4848]/30">
               <h2 className="text-3xl font-bold text-[#9d4848] mb-6 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Контакты
               </h2>
@@ -241,7 +241,7 @@ const Index = () => {
               </div>
             </div>
 
-            <footer className="text-center text-xs text-[#4a3428]/60 mt-8 pb-4">
+            <footer className="text-center text-xs text-[#4a3428] mt-8 pb-4 drop-shadow">
               © 2024 Код публичности
             </footer>
           </div>
