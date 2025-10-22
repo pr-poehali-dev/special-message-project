@@ -9,6 +9,7 @@ interface Particle {
   vy: number;
   rotation: number;
   rotationSpeed: number;
+  spiralAngle: number;
   size: number;
   color: string;
   shape: string;
@@ -52,7 +53,8 @@ const Index = () => {
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
           rotation: Math.random() * 360,
-          rotationSpeed: (Math.random() * 15 + 10) * spiralDirection,
+          rotationSpeed: (Math.random() * 12 + 8) * spiralDirection,
+          spiralAngle: 0,
           size: Math.random() * 25 + 15,
           color: colors[Math.floor(Math.random() * colors.length)],
           shape: 'spark'
@@ -76,6 +78,7 @@ const Index = () => {
           vy: Math.random() * 60 + 50,
           rotation: Math.random() * 360,
           rotationSpeed: Math.random() * 8 + 5,
+          spiralAngle: 0,
           size: Math.random() * 35 + 30,
           color: colors[Math.floor(Math.random() * colors.length)],
           shape: 'star'
@@ -90,17 +93,35 @@ const Index = () => {
     const interval = setInterval(() => {
       setParticles(prev => 
         prev.map(p => {
-          const newVx = p.shape === 'spark' ? p.vx + (Math.sin(p.rotation * Math.PI / 180) * 3) : p.vx;
-          const newVy = p.vy + (p.shape === 'star' ? 40 : 250) * 0.016;
-          
-          return {
-            ...p,
-            x: p.x + newVx * 0.016,
-            y: p.y + newVy * 0.016,
-            vx: newVx,
-            vy: newVy,
-            rotation: p.rotation + p.rotationSpeed
-          };
+          if (p.shape === 'spark') {
+            const newSpiralAngle = p.spiralAngle + 0.15;
+            const spiralRadius = 8;
+            const spiralX = Math.cos(newSpiralAngle) * spiralRadius;
+            const spiralY = Math.sin(newSpiralAngle) * spiralRadius;
+            
+            const newVx = p.vx * 0.99;
+            const newVy = p.vy * 0.99 + 200 * 0.016;
+            
+            return {
+              ...p,
+              x: p.x + (newVx + spiralX) * 0.016,
+              y: p.y + (newVy + spiralY) * 0.016,
+              vx: newVx,
+              vy: newVy,
+              spiralAngle: newSpiralAngle,
+              rotation: p.rotation + p.rotationSpeed
+            };
+          } else {
+            const newVy = p.vy + 40 * 0.016;
+            return {
+              ...p,
+              x: p.x + p.vx * 0.016,
+              y: p.y + newVy * 0.016,
+              vy: newVy,
+              spiralAngle: p.spiralAngle,
+              rotation: p.rotation + p.rotationSpeed
+            };
+          }
         }).filter(p => p.y < 130 && p.y > -10)
       );
     }, 16);
