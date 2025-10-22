@@ -14,90 +14,58 @@ interface Particle {
 }
 
 const Index = () => {
-  const [stage, setStage] = useState<'envelope' | 'cracking' | 'firework' | 'tossing' | 'opening' | 'message'>('envelope');
+  const [stage, setStage] = useState<'envelope' | 'firework' | 'opening' | 'message'>('envelope');
   const [particles, setParticles] = useState<Particle[]>([]);
-  const [envelopeY, setEnvelopeY] = useState(0);
-  const [envelopeRotation, setEnvelopeRotation] = useState(0);
 
   const handleSealClick = () => {
     if (stage !== 'envelope') return;
     
-    setStage('cracking');
-    createWaxFragments();
-    
-    setTimeout(() => {
-      setStage('firework');
-      createFireworks();
-    }, 500);
-    
-    setTimeout(() => {
-      setStage('tossing');
-      animateEnvelopeToss();
-    }, 1300);
+    setStage('firework');
+    createFireworks();
     
     setTimeout(() => {
       setStage('opening');
-    }, 2300);
+    }, 5000);
     
     setTimeout(() => {
       setStage('message');
       createStarShower();
-    }, 2900);
-  };
-
-  const createWaxFragments = () => {
-    const fragments: Particle[] = [];
-    const colors = ['#9d4848', '#c14f4f'];
-    
-    for (let i = 0; i < 20; i++) {
-      const angle = (Math.PI * 2 * i) / 20;
-      const speed = Math.random() * 150 + 100;
-      
-      fragments.push({
-        id: Date.now() + i,
-        x: 50,
-        y: 50,
-        vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed,
-        rotation: Math.random() * 360,
-        size: Math.random() * 20 + 15,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        shape: 'fragment'
-      });
-    }
-    
-    setParticles(fragments);
+    }, 5500);
   };
 
   const createFireworks = () => {
-    const fireworks: Particle[] = [];
+    setParticles([]);
     const colors = ['#e29563', '#ffd700', '#ffffff'];
     
-    for (let i = 0; i < 80; i++) {
-      const angle = (Math.PI * 2 * i) / 80;
-      const speed = Math.random() * 250 + 250;
-      
-      fireworks.push({
-        id: Date.now() + i + 1000,
-        x: 50,
-        y: 50,
-        vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed,
-        rotation: 0,
-        size: Math.random() * 12 + 8,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        shape: 'spark'
-      });
+    for (let wave = 0; wave < 5; wave++) {
+      setTimeout(() => {
+        const fireworks: Particle[] = [];
+        for (let i = 0; i < 20; i++) {
+          const angle = (Math.PI * 2 * i) / 20;
+          const speed = Math.random() * 200 + 200;
+          
+          fireworks.push({
+            id: Date.now() + i + wave * 1000 + Math.random() * 100,
+            x: 50,
+            y: 50,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            rotation: 0,
+            size: Math.random() * 15 + 10,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            shape: 'spark'
+          });
+        }
+        setParticles(prev => [...prev, ...fireworks]);
+      }, wave * 1000);
     }
-    
-    setParticles(fireworks);
   };
 
   const createStarShower = () => {
-    const stars: Particle[] = [];
+    setParticles([]);
     const colors = ['#ffd700', '#e29563', '#ffffff'];
     
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 60; i++) {
       setTimeout(() => {
         setParticles(prev => [...prev, {
           id: Date.now() + i + Math.random() * 1000,
@@ -106,34 +74,12 @@ const Index = () => {
           vx: (Math.random() - 0.5) * 50,
           vy: Math.random() * 80 + 40,
           rotation: Math.random() * 360,
-          size: Math.random() * 25 + 20,
+          size: Math.random() * 30 + 25,
           color: colors[Math.floor(Math.random() * colors.length)],
           shape: 'star'
         }]);
-      }, i * 50);
+      }, i * 100);
     }
-  };
-
-  const animateEnvelopeToss = () => {
-    let time = 0;
-    const duration = 1000;
-    
-    const animate = () => {
-      time += 16;
-      const progress = time / duration;
-      
-      if (progress < 1) {
-        const bounceProgress = progress < 0.6 ? progress / 0.6 : (1 - progress) / 0.4;
-        setEnvelopeY(Math.sin(bounceProgress * Math.PI) * -100);
-        setEnvelopeRotation(Math.sin(progress * Math.PI * 2) * 15);
-        requestAnimationFrame(animate);
-      } else {
-        setEnvelopeY(0);
-        setEnvelopeRotation(0);
-      }
-    };
-    
-    animate();
   };
 
   useEffect(() => {
@@ -152,10 +98,10 @@ const Index = () => {
     }, 16);
 
     setTimeout(() => {
-      if (stage === 'cracking' || stage === 'firework') {
+      if (stage === 'firework') {
         setParticles([]);
       }
-    }, 2000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, [particles, stage]);
@@ -163,8 +109,6 @@ const Index = () => {
   const handleClose = () => {
     setStage('envelope');
     setParticles([]);
-    setEnvelopeY(0);
-    setEnvelopeRotation(0);
   };
 
   return (
@@ -195,10 +139,6 @@ const Index = () => {
             className={`relative transition-opacity duration-600 ${
               stage === 'opening' ? 'opacity-0' : 'opacity-100'
             }`}
-            style={{
-              transform: `translateY(${envelopeY}px) rotate(${envelopeRotation}deg)`,
-              transition: 'none'
-            }}
           >
             <div
               className={`cursor-pointer ${stage === 'envelope' ? 'hover:scale-105' : ''} transition-transform duration-300`}
