@@ -207,7 +207,7 @@ const Index = () => {
                       opacity: 0
                     }}
                   >
-                    Ты звезда и выиграла подарок от Кода публичности!
+                    Ты, звезда, выиграла приз от Кода публичности!
                   </h1>
 
                   <div className="pt-4 sm:pt-8 flex justify-center animate-slide-in-up" style={{ animationDelay: '0.4s', opacity: 0 }}>
