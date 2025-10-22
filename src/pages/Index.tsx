@@ -189,6 +189,7 @@ const Index = () => {
             <div className="relative">
               <div className="p-8 md:p-16 shadow-2xl relative z-10 border-4 border-[#9d4848]/30">
                 <div className="text-center space-y-6">
+                  <div className="pt-8 md:pt-12"></div>
                   <h1 
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#2d1810] leading-tight px-2"
                     style={{ fontFamily: "'Playfair Display', serif", textShadow: '3px 3px 8px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.6)' }}
