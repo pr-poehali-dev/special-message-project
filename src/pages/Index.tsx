@@ -228,9 +228,7 @@ const Index = () => {
                 <div className="transform hover:scale-105 transition-all duration-300">
                   <h3 className="font-bold text-[#2d1810] mb-4 text-xl md:text-2xl">📱 Телефон / WhatsApp</h3>
                   <a 
-                    href="https://wa.me/79147043536" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                    href="tel:+79147043536"
                     className="inline-block text-[#1a0f08] hover:text-white bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#128C7E] hover:to-[#25D366] font-black text-xl md:text-2xl px-6 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
                     style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}
                   >
