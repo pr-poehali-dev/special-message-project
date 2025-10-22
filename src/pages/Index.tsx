@@ -47,7 +47,7 @@ const Index = () => {
         
         for (let i = 0; i < particlesPerWave; i++) {
           const angle = Math.random() * Math.PI * 2;
-          const speed = Math.random() * 280 + 220;
+          const speed = Math.random() * 200 + 180;
           const spiralDirection = Math.random() > 0.5 ? 1 : -1;
           
           newParticles.push({
@@ -57,7 +57,7 @@ const Index = () => {
             vx: Math.cos(angle) * speed,
             vy: Math.sin(angle) * speed,
             rotation: Math.random() * 360,
-            rotationSpeed: (Math.random() * 12 + 8) * spiralDirection,
+            rotationSpeed: (Math.random() * 10 + 6) * spiralDirection,
             spiralAngle: 0,
             size: Math.random() * 22 + 12,
             color: colors[Math.floor(Math.random() * colors.length)],
@@ -101,13 +101,14 @@ const Index = () => {
       setParticles(prev => 
         prev.map(p => {
           if (p.shape === 'spark') {
-            const newSpiralAngle = p.spiralAngle + 0.25;
-            const spiralRadius = 15;
+            const newSpiralAngle = p.spiralAngle + 0.35;
+            const time = p.spiralAngle / 10;
+            const spiralRadius = 20 + time * 5;
             const spiralX = Math.cos(newSpiralAngle) * spiralRadius;
             const spiralY = Math.sin(newSpiralAngle) * spiralRadius;
             
-            const newVx = p.vx * 0.985;
-            const newVy = p.vy * 0.985 + 180 * 0.016;
+            const newVx = p.vx * 0.975;
+            const newVy = p.vy * 0.975 + 120 * 0.016;
             
             return {
               ...p,
@@ -116,7 +117,7 @@ const Index = () => {
               vx: newVx,
               vy: newVy,
               spiralAngle: newSpiralAngle,
-              rotation: p.rotation + p.rotationSpeed * 1.5
+              rotation: p.rotation + p.rotationSpeed * 2
             };
           } else {
             const newVy = p.vy + 40 * 0.016;
