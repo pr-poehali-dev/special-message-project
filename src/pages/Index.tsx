@@ -45,9 +45,18 @@ const Index = () => {
 
               <div className="text-center space-y-8">
                 <div className="flex justify-center">
-                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <Icon name="PartyPopper" className="text-primary" size={40} />
-                  </div>
+                  <a 
+                    href="https://cdn.poehali.dev/files/4f0db575-f476-4c63-88e7-97266ee43d96.jpg" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block hover:opacity-90 transition-opacity cursor-pointer"
+                  >
+                    <img 
+                      src="https://cdn.poehali.dev/files/4f0db575-f476-4c63-88e7-97266ee43d96.jpg" 
+                      alt="Восковая печать НАЖМИТЕ"
+                      className="w-full max-w-md mx-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                    />
+                  </a>
                 </div>
 
                 <h2 className="text-4xl md:text-5xl font-bold text-primary italic">
