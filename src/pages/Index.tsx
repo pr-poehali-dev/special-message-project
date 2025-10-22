@@ -183,15 +183,15 @@ const Index = () => {
           </div>
         </div>
       ) : (
-        <div className="absolute inset-0 flex items-center justify-center p-4 animate-fade-in overflow-y-auto bg-cover bg-center" style={{ backgroundImage: 'url(https://cdn.poehali.dev/files/1b8c6eb3-afb1-4d3f-9832-49d72347704c.jpeg)' }}>
+        <div className="absolute inset-0 flex items-center justify-center p-2 sm:p-4 animate-fade-in overflow-y-auto bg-cover bg-center" style={{ backgroundImage: 'url(https://cdn.poehali.dev/files/1b8c6eb3-afb1-4d3f-9832-49d72347704c.jpeg)' }}>
           <div className="absolute inset-0 bg-white/40"></div>
-          <div className="w-full py-8 px-4">
+          <div className="w-full py-4 sm:py-8 px-2 sm:px-4 relative z-10">
             <div className="relative">
-              <div className="p-8 md:p-16 shadow-2xl relative z-10 border-4 border-[#9d4848]/30">
-                <div className="text-center space-y-6">
-                  <div className="pt-8 md:pt-12"></div>
+              <div className="p-4 sm:p-8 md:p-16 shadow-2xl relative z-10 border-2 sm:border-4 border-[#9d4848]/30 bg-white/50">
+                <div className="text-center space-y-4 sm:space-y-6">
+                  <div className="pt-4 sm:pt-8 md:pt-12"></div>
                   <h1 
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight px-2 uppercase"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight px-1 sm:px-2 uppercase"
                     style={{ 
                       fontFamily: "'Playfair Display', serif",
                       background: 'linear-gradient(90deg, #9d4848 0%, #ffd700 25%, #2d1810 50%, #c85a5a 75%, #ffd700 100%)',
@@ -199,18 +199,18 @@ const Index = () => {
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
                       textShadow: 'none',
-                      filter: 'drop-shadow(3px 3px 8px rgba(255,255,255,0.9)) drop-shadow(0 0 20px rgba(255,255,255,0.6))'
+                      filter: 'drop-shadow(2px 2px 4px rgba(255,255,255,0.9)) drop-shadow(0 0 15px rgba(255,255,255,0.6))'
                     }}
                   >
                     Ты звезда и выиграла подарок от&nbsp;Кода&nbsp;публичности!
                   </h1>
 
-                  <div className="pt-8">
+                  <div className="pt-4 sm:pt-8">
                     <Button 
                       onClick={handleClose}
-                      className="relative bg-gradient-to-r from-[#ffd700] via-[#ffed4e] to-[#ffd700] hover:from-[#ffed4e] hover:via-[#ffd700] hover:to-[#ffed4e] text-[#2d1810] px-8 sm:px-12 md:px-16 py-6 sm:py-8 md:py-10 text-xl sm:text-2xl md:text-3xl font-black shadow-[0_0_50px_rgba(255,215,0,1),0_0_100px_rgba(255,215,0,0.5)] transform hover:scale-110 transition-all duration-300 border-4 border-[#9d4848] rounded-full"
+                      className="relative bg-gradient-to-r from-[#ffd700] via-[#ffed4e] to-[#ffd700] hover:from-[#ffed4e] hover:via-[#ffd700] hover:to-[#ffed4e] text-[#2d1810] px-6 sm:px-8 md:px-12 lg:px-16 py-4 sm:py-6 md:py-8 lg:py-10 text-lg sm:text-xl md:text-2xl lg:text-3xl font-black shadow-[0_0_30px_rgba(255,215,0,0.8),0_0_60px_rgba(255,215,0,0.4)] sm:shadow-[0_0_50px_rgba(255,215,0,1),0_0_100px_rgba(255,215,0,0.5)] transform hover:scale-105 sm:hover:scale-110 transition-all duration-300 border-2 sm:border-4 border-[#9d4848] rounded-full"
                       style={{ 
-                        textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
+                        textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
                       }}
                     >
                       🎁 Узнать подробнее 🎁
@@ -220,40 +220,40 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="mt-12 p-8 md:p-12 shadow-xl border-4 border-[#9d4848]/30 relative z-20 bg-white/60">
-              <h2 className="text-4xl md:text-5xl font-black text-[#2d1810] mb-10 text-center" style={{ fontFamily: "'Playfair Display', serif", textShadow: '2px 2px 4px rgba(255,255,255,0.8)' }}>
+            <div className="mt-6 sm:mt-12 p-4 sm:p-8 md:p-12 shadow-xl border-2 sm:border-4 border-[#9d4848]/30 relative z-20 bg-white/60">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#2d1810] mb-6 sm:mb-10 text-center" style={{ fontFamily: "'Playfair Display', serif", textShadow: '2px 2px 4px rgba(255,255,255,0.8)' }}>
                 Контакты
               </h2>
-              <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 text-center">
                 <div className="transform hover:scale-105 transition-all duration-300">
-                  <h3 className="font-bold text-[#2d1810] mb-4 text-xl md:text-2xl">📱 Телефон / WhatsApp</h3>
+                  <h3 className="font-bold text-[#2d1810] mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">📱 Телефон / WhatsApp</h3>
                   <a 
                     href="tel:+79147043536"
-                    className="inline-block text-[#1a0f08] hover:text-white bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#128C7E] hover:to-[#25D366] font-black text-xl md:text-2xl px-6 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
+                    className="inline-block w-full sm:w-auto text-[#1a0f08] hover:text-white bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#128C7E] hover:to-[#25D366] font-black text-lg sm:text-xl md:text-2xl px-4 sm:px-6 py-3 sm:py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
                     style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}
                   >
                     +7 (914) 704-35-36
                   </a>
                 </div>
                 <div className="transform hover:scale-105 transition-all duration-300">
-                  <h3 className="font-bold text-[#2d1810] mb-4 text-xl md:text-2xl">📍 Адрес</h3>
+                  <h3 className="font-bold text-[#2d1810] mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">📍 Адрес</h3>
                   <a 
                     href="https://2gis.ru/vladivostok/firm/70000001035564383" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="inline-block text-white bg-gradient-to-r from-[#9d4848] to-[#c85a5a] hover:from-[#b35555] hover:to-[#d66868] font-black text-xl md:text-2xl px-6 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
+                    className="inline-block w-full sm:w-auto text-white bg-gradient-to-r from-[#9d4848] to-[#c85a5a] hover:from-[#b35555] hover:to-[#d66868] font-black text-lg sm:text-xl md:text-2xl px-4 sm:px-6 py-3 sm:py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
                     style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}
                   >
                     Ангар Edwin Group
                   </a>
                 </div>
                 <div className="transform hover:scale-105 transition-all duration-300">
-                  <h3 className="font-bold text-[#2d1810] mb-4 text-xl md:text-2xl">🌐 Веб-сайт</h3>
+                  <h3 className="font-bold text-[#2d1810] mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">🌐 Веб-сайт</h3>
                   <a 
                     href="https://kodpublichnosti-vl.ru/networking" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="inline-block text-white bg-gradient-to-r from-[#2d1810] to-[#4a2f20] hover:from-[#4a2f20] hover:to-[#2d1810] font-black text-xl md:text-2xl px-6 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 break-all"
+                    className="inline-block w-full sm:w-auto text-white bg-gradient-to-r from-[#2d1810] to-[#4a2f20] hover:from-[#4a2f20] hover:to-[#2d1810] font-black text-lg sm:text-xl md:text-2xl px-4 sm:px-6 py-3 sm:py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 break-all"
                     style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}
                   >
                     kodpublichnosti-vl.ru
