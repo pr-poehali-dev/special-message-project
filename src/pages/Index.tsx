@@ -187,11 +187,12 @@ const Index = () => {
           <div className="absolute inset-0 bg-white/40"></div>
           <div className="w-full py-4 sm:py-8 px-2 sm:px-4 relative z-10">
             <div className="relative">
-              <div className="p-4 sm:p-8 md:p-16 shadow-2xl relative z-10 border-2 sm:border-4 border-[#9d4848]/30 bg-white/50">
+              <div className="p-4 sm:p-8 md:p-16 shadow-2xl relative z-10 border-2 sm:border-4 border-[#9d4848]/30 bg-white/50 animate-slide-in-up">
                 <div className="text-center space-y-4 sm:space-y-6">
                   <div className="pt-4 sm:pt-8 md:pt-12"></div>
                   <h1 
-                    className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight px-1 sm:px-2 uppercase break-words"
+                    className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight px-1 sm:px-2 uppercase break-words animate-slide-in-up"
+                    style={{ animationDelay: '0.2s', opacity: 0 }}
                     style={{ 
                       fontFamily: "'Playfair Display', serif",
                       background: 'linear-gradient(90deg, #9d4848 0%, #ffd700 25%, #2d1810 50%, #c85a5a 75%, #ffd700 100%)',
@@ -201,13 +202,15 @@ const Index = () => {
                       textShadow: 'none',
                       filter: 'drop-shadow(2px 2px 4px rgba(255,255,255,0.9)) drop-shadow(0 0 15px rgba(255,255,255,0.6))',
                       wordWrap: 'break-word',
-                      overflowWrap: 'break-word'
+                      overflowWrap: 'break-word',
+                      animationDelay: '0.2s',
+                      opacity: 0
                     }}
                   >
                     Ты звезда и выиграла подарок от Кода публичности!
                   </h1>
 
-                  <div className="pt-4 sm:pt-8 flex justify-center">
+                  <div className="pt-4 sm:pt-8 flex justify-center animate-slide-in-up" style={{ animationDelay: '0.4s', opacity: 0 }}>
                     <Button 
                       onClick={handleClose}
                       className="bg-gradient-to-r from-[#ffd700] via-[#ffed4e] to-[#ffd700] hover:from-[#ffed4e] hover:via-[#ffd700] hover:to-[#ffed4e] text-[#2d1810] px-6 sm:px-8 md:px-12 lg:px-16 py-4 sm:py-6 md:py-8 lg:py-10 text-lg sm:text-xl md:text-2xl lg:text-3xl font-black shadow-[0_0_30px_rgba(255,215,0,0.8),0_0_60px_rgba(255,215,0,0.4)] sm:shadow-[0_0_50px_rgba(255,215,0,1),0_0_100px_rgba(255,215,0,0.5)] transform hover:scale-105 sm:hover:scale-110 transition-all duration-300 border-2 sm:border-4 border-[#9d4848] rounded-full"
@@ -222,12 +225,12 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="mt-6 sm:mt-12 p-4 sm:p-8 md:p-12 shadow-xl border-2 sm:border-4 border-[#9d4848]/30 relative z-20 bg-white/60">
+            <div className="mt-6 sm:mt-12 p-4 sm:p-8 md:p-12 shadow-xl border-2 sm:border-4 border-[#9d4848]/30 relative z-20 bg-white/60 animate-slide-in-up" style={{ animationDelay: '0.6s', opacity: 0 }}>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#2d1810] mb-6 sm:mb-10 text-center" style={{ fontFamily: "'Playfair Display', serif", textShadow: '2px 2px 4px rgba(255,255,255,0.8)' }}>
                 Контакты
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 text-center">
-                <div className="transform hover:scale-105 transition-all duration-300">
+                <div className="transform hover:scale-105 transition-all duration-300 animate-slide-in-left" style={{ animationDelay: '0.8s', opacity: 0 }}>
                   <h3 className="font-bold text-[#2d1810] mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">📱 Телефон / WhatsApp</h3>
                   <a 
                     href="https://wa.me/79147043536"
@@ -239,7 +242,7 @@ const Index = () => {
                     +7 (914) 704-35-36
                   </a>
                 </div>
-                <div className="transform hover:scale-105 transition-all duration-300">
+                <div className="transform hover:scale-105 transition-all duration-300 animate-slide-in-up" style={{ animationDelay: '1s', opacity: 0 }}>
                   <h3 className="font-bold text-[#2d1810] mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">📍 Адрес</h3>
                   <a 
                     href="https://2gis.ru/vladivostok/firm/70000001035564383" 
@@ -251,7 +254,7 @@ const Index = () => {
                     Ангар Edwin Group
                   </a>
                 </div>
-                <div className="transform hover:scale-105 transition-all duration-300">
+                <div className="transform hover:scale-105 transition-all duration-300 animate-slide-in-right" style={{ animationDelay: '1.2s', opacity: 0 }}>
                   <h3 className="font-bold text-[#2d1810] mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">🌐 Веб-сайт</h3>
                   <a 
                     href="https://kodpublichnosti-vl.ru/networking" 
