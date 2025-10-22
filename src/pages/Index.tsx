@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
-interface Butterfly {
+interface Particle {
   id: number;
   x: number;
   y: number;
@@ -10,146 +10,220 @@ interface Butterfly {
   rotation: number;
   size: number;
   color: string;
+  shape: string;
 }
 
 const Index = () => {
-  const [stage, setStage] = useState<'envelope' | 'peeling' | 'falling' | 'opening' | 'message'>('envelope');
-  const [butterflies, setButterflies] = useState<Butterfly[]>([]);
+  const [stage, setStage] = useState<'envelope' | 'cracking' | 'firework' | 'tossing' | 'opening' | 'message'>('envelope');
+  const [particles, setParticles] = useState<Particle[]>([]);
+  const [envelopeY, setEnvelopeY] = useState(0);
+  const [envelopeRotation, setEnvelopeRotation] = useState(0);
 
-  const handleEnvelopeClick = () => {
+  const handleSealClick = () => {
     if (stage !== 'envelope') return;
     
-    setStage('peeling');
+    setStage('cracking');
+    createWaxFragments();
     
-    setTimeout(() => setStage('falling'), 800);
-    setTimeout(() => setStage('opening'), 1900);
+    setTimeout(() => {
+      setStage('firework');
+      createFireworks();
+    }, 500);
+    
+    setTimeout(() => {
+      setStage('tossing');
+      animateEnvelopeToss();
+    }, 1300);
+    
+    setTimeout(() => {
+      setStage('opening');
+    }, 2300);
+    
     setTimeout(() => {
       setStage('message');
-      createButterflies();
-    }, 2500);
+      createStarShower();
+    }, 2900);
   };
 
-  const createButterflies = () => {
-    const newButterflies: Butterfly[] = [];
-    const colors = ['#d4a373', '#9d4848'];
+  const createWaxFragments = () => {
+    const fragments: Particle[] = [];
+    const colors = ['#9d4848', '#c14f4f'];
     
-    for (let i = 0; i < 20; i++) {
-      newButterflies.push({
-        id: i,
+    for (let i = 0; i < 15; i++) {
+      const angle = (Math.PI * 2 * i) / 15;
+      const speed = Math.random() * 100 + 50;
+      
+      fragments.push({
+        id: Date.now() + i,
         x: 50,
         y: 50,
-        vx: (Math.random() - 0.5) * 200,
-        vy: -Math.random() * 150 - 50,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
         rotation: Math.random() * 360,
-        size: Math.random() * 24 + 24,
-        color: colors[Math.floor(Math.random() * colors.length)]
+        size: Math.random() * 10 + 5,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        shape: 'fragment'
       });
     }
     
-    setButterflies(newButterflies);
+    setParticles(fragments);
+  };
+
+  const createFireworks = () => {
+    const fireworks: Particle[] = [];
+    const colors = ['#e29563', '#ffd700', '#ffffff'];
+    
+    for (let i = 0; i < 60; i++) {
+      const angle = (Math.PI * 2 * i) / 60;
+      const speed = Math.random() * 200 + 200;
+      
+      fireworks.push({
+        id: Date.now() + i + 1000,
+        x: 50,
+        y: 50,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        rotation: 0,
+        size: Math.random() * 8 + 4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        shape: 'spark'
+      });
+    }
+    
+    setParticles(fireworks);
+  };
+
+  const createStarShower = () => {
+    const stars: Particle[] = [];
+    const colors = ['#ffd700', '#e29563', '#ffffff'];
+    
+    for (let i = 0; i < 30; i++) {
+      stars.push({
+        id: Date.now() + i + 2000,
+        x: Math.random() * 100,
+        y: -10,
+        vx: (Math.random() - 0.5) * 50,
+        vy: Math.random() * 100 + 50,
+        rotation: Math.random() * 360,
+        size: Math.random() * 20 + 15,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        shape: 'star'
+      });
+    }
+    
+    setParticles(stars);
+  };
+
+  const animateEnvelopeToss = () => {
+    let time = 0;
+    const duration = 1000;
+    
+    const animate = () => {
+      time += 16;
+      const progress = time / duration;
+      
+      if (progress < 1) {
+        const bounceProgress = progress < 0.6 ? progress / 0.6 : (1 - progress) / 0.4;
+        setEnvelopeY(Math.sin(bounceProgress * Math.PI) * -100);
+        setEnvelopeRotation(Math.sin(progress * Math.PI * 2) * 15);
+        requestAnimationFrame(animate);
+      } else {
+        setEnvelopeY(0);
+        setEnvelopeRotation(0);
+      }
+    };
+    
+    animate();
   };
 
   useEffect(() => {
-    if (butterflies.length === 0) return;
+    if (particles.length === 0) return;
 
     const interval = setInterval(() => {
-      setButterflies(prev => 
-        prev.map(b => ({
-          ...b,
-          x: b.x + b.vx * 0.016,
-          y: b.y + b.vy * 0.016,
-          vy: b.vy + 98 * 0.016,
-          rotation: b.rotation + 5
-        })).filter(b => b.y < 150)
+      setParticles(prev => 
+        prev.map(p => ({
+          ...p,
+          x: p.x + p.vx * 0.016,
+          y: p.y + p.vy * 0.016,
+          vy: p.vy + (p.shape === 'star' ? 50 : 300) * 0.016,
+          rotation: p.rotation + 5
+        })).filter(p => p.y < 120 && p.y > -20)
       );
     }, 16);
 
+    setTimeout(() => {
+      if (stage === 'cracking' || stage === 'firework') {
+        setParticles([]);
+      }
+    }, 2000);
+
     return () => clearInterval(interval);
-  }, [butterflies]);
+  }, [particles, stage]);
 
   const handleClose = () => {
     setStage('envelope');
-    setButterflies([]);
+    setParticles([]);
+    setEnvelopeY(0);
+    setEnvelopeRotation(0);
   };
 
   return (
-    <div className="min-h-screen bg-[#f5e6d3] relative overflow-hidden">
+    <div className="fixed inset-0 bg-[#f5e6d3] overflow-hidden">
+      {particles.map(p => (
+        <div
+          key={p.id}
+          className="absolute pointer-events-none"
+          style={{
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            transform: `translate(-50%, -50%) rotate(${p.rotation}deg)`,
+            fontSize: p.shape === 'star' ? `${p.size}px` : undefined,
+            width: p.shape !== 'star' ? `${p.size}px` : undefined,
+            height: p.shape !== 'star' ? `${p.size}px` : undefined,
+            backgroundColor: p.shape !== 'star' ? p.color : undefined,
+            color: p.shape === 'star' ? p.color : undefined,
+            borderRadius: p.shape === 'fragment' ? '20%' : p.shape === 'spark' ? '50%' : undefined,
+          }}
+        >
+          {p.shape === 'star' && '⭐'}
+        </div>
+      ))}
       {stage !== 'message' ? (
-        <div className="fixed inset-0 flex items-center justify-center">
-          <div className="relative">
-            <div 
-              className={`cursor-pointer transition-all duration-500 ${
-                stage === 'opening' ? 'opacity-0 scale-95' : 'opacity-100'
-              }`}
-              onClick={handleEnvelopeClick}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div 
+            className={`relative transition-opacity duration-600 ${
+              stage === 'opening' ? 'opacity-0' : 'opacity-100'
+            }`}
+            style={{
+              transform: `translateY(${envelopeY}px) rotate(${envelopeRotation}deg)`,
+              transition: 'none'
+            }}
+          >
+            <div
+              className={`cursor-pointer ${stage === 'envelope' ? 'hover:scale-105' : ''} transition-transform duration-300`}
+              onClick={handleSealClick}
             >
               <img 
                 src="https://cdn.poehali.dev/files/7d89ea53-68de-4c78-8e71-728ba4aca4b4.jpg"
-                alt="Конверт"
-                className="w-[90vw] max-w-[600px] h-auto"
+                alt="Конверт с восковой печатью"
+                className="w-screen h-screen object-cover"
               />
             </div>
-
-            <div 
-              className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all ${
-                stage === 'peeling' 
-                  ? 'animate-[flip_0.8s_ease-out_forwards]' 
-                  : stage === 'falling'
-                  ? 'animate-[fall_1s_ease-in_forwards]'
-                  : stage === 'opening'
-                  ? 'opacity-0'
-                  : ''
-              }`}
-              style={{
-                transformStyle: 'preserve-3d',
-              }}
-            />
           </div>
         </div>
       ) : (
-        <div className="min-h-screen flex items-center justify-center p-4 relative">
-          {butterflies.map(b => (
-            <div
-              key={b.id}
-              className="absolute pointer-events-none"
-              style={{
-                left: `${b.x}%`,
-                top: `${b.y}%`,
-                transform: `rotate(${b.rotation}deg)`,
-                fontSize: `${b.size}px`,
-                color: b.color,
-                transition: 'all 0.016s linear'
-              }}
-            >
-              🦋
-            </div>
-          ))}
-
-          <div className="w-full max-w-3xl animate-fade-in">
+        <div className="absolute inset-0 flex items-center justify-center p-4 animate-fade-in overflow-y-auto">
+          <div className="w-full max-w-3xl py-8">
             <div className="relative">
-              {[...Array(30)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute animate-pulse"
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    fontSize: `${Math.random() * 20 + 10}px`,
-                    color: ['#d4a373', '#9d4848', '#ffffff'][Math.floor(Math.random() * 3)],
-                    animationDelay: `${Math.random() * 2}s`
-                  }}
-                >
-                  ⭐
-                </div>
-              ))}
-
-              <div className="bg-[#f5e6d3] p-12 md:p-16 shadow-2xl relative z-10 border-4 border-[#9d4848]/20">
+              <div className="bg-[#f5e6d3] p-8 md:p-16 shadow-2xl relative z-10 border-4 border-[#9d4848]/30">
                 <div className="text-center space-y-8">
+                  <div className="text-6xl md:text-8xl mb-4">🎁</div>
+                  
                   <h1 
-                    className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#4a3428] leading-tight"
+                    className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#4a3428] leading-tight"
                     style={{ fontFamily: "'Playfair Display', serif" }}
                   >
-                    Ты звезда, и ты выиграла подарок от Кода публичности!
+                    Ты звезда и выиграла подарок от Кода публичности!
                   </h1>
 
                   <div className="pt-8">
@@ -165,7 +239,9 @@ const Index = () => {
             </div>
 
             <div className="mt-12 bg-[#f5e6d3] p-8 shadow-xl border-2 border-[#9d4848]/20">
-              <h2 className="text-3xl font-bold text-[#9d4848] mb-6 text-center">Контакты</h2>
+              <h2 className="text-3xl font-bold text-[#9d4848] mb-6 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Контакты
+              </h2>
               <div className="grid md:grid-cols-2 gap-6 text-center md:text-left">
                 <div>
                   <h3 className="font-semibold text-[#9d4848] mb-2">Электронная почта</h3>
@@ -198,21 +274,6 @@ const Index = () => {
           </div>
         </div>
       )}
-
-      <style>{`
-        @keyframes flip {
-          0% { transform: translate(-50%, -50%) rotateY(0deg); }
-          100% { transform: translate(-50%, -50%) rotateY(180deg); }
-        }
-        
-        @keyframes fall {
-          0% { transform: translate(-50%, -50%) rotateY(180deg); }
-          60% { transform: translate(-50%, 100vh) rotateY(180deg) rotate(20deg); }
-          70% { transform: translate(-50%, 95vh) rotateY(180deg) rotate(-10deg); }
-          80% { transform: translate(-50%, 98vh) rotateY(180deg) rotate(5deg); }
-          100% { transform: translate(-50%, 100vh) rotateY(180deg) rotate(0deg); }
-        }
-      `}</style>
     </div>
   );
 };
