@@ -36,30 +36,25 @@ const Index = () => {
   const createFireworks = () => {
     setParticles([]);
     const colors = ['#e29563', '#ffd700', '#ffffff', '#ff6b6b', '#4ecdc4'];
+    const totalParticles = 100;
     
-    for (let burst = 0; burst < 10; burst++) {
+    for (let i = 0; i < totalParticles; i++) {
       setTimeout(() => {
-        const burstParticles: Particle[] = [];
-        const particlesPerBurst = 10;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 180 + 150;
         
-        for (let i = 0; i < particlesPerBurst; i++) {
-          const angle = (Math.PI * 2 * i) / particlesPerBurst + (burst * 0.3);
-          const speed = Math.random() * 150 + 180;
-          
-          burstParticles.push({
-            id: Date.now() + burst * 1000 + i + Math.random() * 100,
-            x: 50,
-            y: 50,
-            vx: Math.cos(angle) * speed,
-            vy: Math.sin(angle) * speed,
-            rotation: Math.random() * 360,
-            size: Math.random() * 18 + 12,
-            color: colors[Math.floor(Math.random() * colors.length)],
-            shape: 'spark'
-          });
-        }
-        setParticles(prev => [...prev, ...burstParticles]);
-      }, burst * 500);
+        setParticles(prev => [...prev, {
+          id: Date.now() + i + Math.random() * 10000,
+          x: 50,
+          y: 50,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          rotation: Math.random() * 360,
+          size: Math.random() * 20 + 10,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          shape: 'spark'
+        }]);
+      }, i * 50);
     }
   };
 
