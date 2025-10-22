@@ -138,8 +138,7 @@ const Index = () => {
   }, [particles]);
 
   const handleClose = () => {
-    setStage('envelope');
-    setParticles([]);
+    window.open('https://kodpublichnosti-vl.ru/networking', '_blank');
   };
 
   return (
@@ -187,9 +186,15 @@ const Index = () => {
         <div className="absolute inset-0 flex items-center justify-center p-4 animate-fade-in overflow-y-auto bg-cover bg-center" style={{ backgroundImage: 'url(https://cdn.poehali.dev/files/a32cc27b-a241-4470-b1e2-04ad4cb6634b.jpg)' }}>
           <div className="w-full max-w-3xl py-8">
             <div className="relative">
-              <div className="bg-[#f5e6d3] p-8 md:p-16 shadow-2xl relative z-10 border-4 border-[#9d4848]/30">
+              <div className="p-8 md:p-16 shadow-2xl relative z-10 border-4 border-[#9d4848]/30 bg-cover bg-center" style={{ backgroundImage: 'url(https://cdn.poehali.dev/files/a32cc27b-a241-4470-b1e2-04ad4cb6634b.jpg)' }}>
                 <div className="text-center space-y-8">
-                  <div className="text-6xl md:text-8xl mb-4">🎁</div>
+                  <div className="mb-4 animate-bounce">
+                    <img 
+                      src="https://cdn.poehali.dev/files/aeb34484-f382-4dab-bf1b-cd3998b1ff81.jpg" 
+                      alt="Подарок" 
+                      className="w-24 h-24 md:w-32 md:h-32 mx-auto"
+                    />
+                  </div>
                   
                   <h1 
                     className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#4a3428] leading-tight"
@@ -201,9 +206,9 @@ const Index = () => {
                   <div className="pt-8">
                     <Button 
                       onClick={handleClose}
-                      className="bg-[#9d4848] hover:bg-[#9d4848]/90 text-white px-8 py-6 text-lg"
+                      className="bg-gradient-to-r from-[#9d4848] to-[#c85a5a] hover:from-[#b35555] hover:to-[#d66868] text-white px-12 py-8 text-xl font-bold shadow-2xl transform hover:scale-110 transition-all duration-300 animate-pulse border-4 border-[#ffd700]"
                     >
-                      Закрыть
+                      Забрать подарок! 🎁
                     </Button>
                   </div>
                 </div>
@@ -214,27 +219,23 @@ const Index = () => {
               <h2 className="text-3xl font-bold text-[#9d4848] mb-6 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Контакты
               </h2>
-              <div className="grid md:grid-cols-2 gap-6 text-center md:text-left">
+              <div className="grid md:grid-cols-3 gap-6 text-center">
                 <div>
-                  <h3 className="font-semibold text-[#9d4848] mb-2">Электронная почта</h3>
-                  <a href="mailto:contact@example.com" className="text-[#4a3428] hover:text-[#9d4848] transition-colors">
-                    contact@example.com
-                  </a>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-[#9d4848] mb-2">Телефон</h3>
-                  <a href="tel:+71234567890" className="text-[#4a3428] hover:text-[#9d4848] transition-colors">
-                    +7 (123) 456-78-90
+                  <h3 className="font-semibold text-[#9d4848] mb-2">Телефон / WhatsApp</h3>
+                  <a href="https://wa.me/79147043536" target="_blank" rel="noopener noreferrer" className="text-[#4a3428] hover:text-[#9d4848] transition-colors font-medium">
+                    +7 (914) 704-35-36
                   </a>
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#9d4848] mb-2">Адрес</h3>
-                  <p className="text-[#4a3428]">г. Москва, ул. Примерная, д. 1</p>
+                  <a href="https://2gis.ru/vladivostok/firm/70000001035564383" target="_blank" rel="noopener noreferrer" className="text-[#4a3428] hover:text-[#9d4848] transition-colors">
+                    Ангар Edwin Group
+                  </a>
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#9d4848] mb-2">Веб-сайт</h3>
-                  <a href="https://example.com" target="_blank" rel="noopener noreferrer" className="text-[#4a3428] hover:text-[#9d4848] transition-colors">
-                    www.example.com
+                  <a href="https://kodpublichnosti-vl.ru/networking" target="_blank" rel="noopener noreferrer" className="text-[#4a3428] hover:text-[#9d4848] transition-colors break-all">
+                    kodpublichnosti-vl.ru
                   </a>
                 </div>
               </div>
