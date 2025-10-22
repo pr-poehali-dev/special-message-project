@@ -190,15 +190,15 @@ const Index = () => {
                 <div className="text-center space-y-8">
                   <div className="mb-4 animate-bounce">
                     <img 
-                      src="https://cdn.poehali.dev/files/aeb34484-f382-4dab-bf1b-cd3998b1ff81.jpg" 
+                      src="https://cdn.poehali.dev/files/1eb5aa42-a943-443b-8876-6105d896ea20.png" 
                       alt="Подарок" 
-                      className="w-24 h-24 md:w-32 md:h-32 mx-auto"
+                      className="w-32 h-32 md:w-40 md:h-40 mx-auto"
                     />
                   </div>
                   
                   <h1 
-                    className="text-4xl md:text-5xl lg:text-6xl font-black text-[#9d4848] leading-tight drop-shadow-lg"
-                    style={{ fontFamily: "'Playfair Display', serif", textShadow: '3px 3px 6px rgba(0,0,0,0.3)' }}
+                    className="text-4xl md:text-5xl lg:text-6xl font-black text-[#2d1810] leading-tight"
+                    style={{ fontFamily: "'Playfair Display', serif", textShadow: '2px 2px 4px rgba(255,255,255,0.5)' }}
                   >
                     Ты звезда и выиграла подарок от Кода публичности!
                   </h1>
@@ -216,32 +216,32 @@ const Index = () => {
             </div>
 
             <div className="mt-12 p-8 shadow-xl border-4 border-[#9d4848]/30">
-              <h2 className="text-3xl font-bold text-[#9d4848] mb-6 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-3xl font-bold text-[#2d1810] mb-6 text-center" style={{ fontFamily: "'Playfair Display', serif", textShadow: '1px 1px 2px rgba(255,255,255,0.5)' }}>
                 Контакты
               </h2>
               <div className="grid md:grid-cols-3 gap-6 text-center">
                 <div>
-                  <h3 className="font-semibold text-[#9d4848] mb-2">Телефон / WhatsApp</h3>
-                  <a href="https://wa.me/79147043536" target="_blank" rel="noopener noreferrer" className="text-[#4a3428] hover:text-[#9d4848] transition-colors font-medium">
+                  <h3 className="font-bold text-[#2d1810] mb-2 text-lg">Телефон / WhatsApp</h3>
+                  <a href="https://wa.me/79147043536" target="_blank" rel="noopener noreferrer" className="text-[#1a0f08] hover:text-[#9d4848] transition-colors font-semibold text-lg">
                     +7 (914) 704-35-36
                   </a>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#9d4848] mb-2">Адрес</h3>
-                  <a href="https://2gis.ru/vladivostok/firm/70000001035564383" target="_blank" rel="noopener noreferrer" className="text-[#4a3428] hover:text-[#9d4848] transition-colors">
+                  <h3 className="font-bold text-[#2d1810] mb-2 text-lg">Адрес</h3>
+                  <a href="https://2gis.ru/vladivostok/firm/70000001035564383" target="_blank" rel="noopener noreferrer" className="text-[#1a0f08] hover:text-[#9d4848] transition-colors font-semibold text-lg">
                     Ангар Edwin Group
                   </a>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#9d4848] mb-2">Веб-сайт</h3>
-                  <a href="https://kodpublichnosti-vl.ru/networking" target="_blank" rel="noopener noreferrer" className="text-[#4a3428] hover:text-[#9d4848] transition-colors break-all">
+                  <h3 className="font-bold text-[#2d1810] mb-2 text-lg">Веб-сайт</h3>
+                  <a href="https://kodpublichnosti-vl.ru/networking" target="_blank" rel="noopener noreferrer" className="text-[#1a0f08] hover:text-[#9d4848] transition-colors break-all font-semibold text-lg">
                     kodpublichnosti-vl.ru
                   </a>
                 </div>
               </div>
             </div>
 
-            <footer className="text-center text-xs text-[#4a3428] mt-8 pb-4 drop-shadow">
+            <footer className="text-center text-sm text-[#2d1810] font-semibold mt-8 pb-4" style={{ textShadow: '1px 1px 2px rgba(255,255,255,0.5)' }}>
               © 2024 Код публичности
             </footer>
           </div>
