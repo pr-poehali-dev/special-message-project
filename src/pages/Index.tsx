@@ -185,7 +185,7 @@ const Index = () => {
       ) : (
         <div className="absolute inset-0 flex items-center justify-center p-4 animate-fade-in overflow-y-auto bg-cover bg-center" style={{ backgroundImage: 'url(https://cdn.poehali.dev/files/1b8c6eb3-afb1-4d3f-9832-49d72347704c.jpeg)' }}>
           <div className="absolute inset-0 bg-white/40"></div>
-          <div className="w-full max-w-3xl py-8">
+          <div className="w-full py-8 px-4">
             <div className="relative">
               <div className="p-8 md:p-16 shadow-2xl relative z-10 border-4 border-[#9d4848]/30">
                 <div className="text-center space-y-8">
