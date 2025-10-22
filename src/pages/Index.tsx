@@ -204,12 +204,16 @@ const Index = () => {
                     Ты звезда и выиграла подарок от Кода публичности!
                   </h1>
 
-                  <div className="pt-8">
+                  <div className="pt-8 animate-bounce">
                     <Button 
                       onClick={handleClose}
-                      className="bg-gradient-to-r from-[#9d4848] to-[#c85a5a] hover:from-[#b35555] hover:to-[#d66868] text-white px-12 py-8 text-xl font-bold shadow-2xl transform hover:scale-110 transition-all duration-300 animate-pulse border-4 border-[#ffd700]"
+                      className="relative bg-gradient-to-r from-[#ffd700] via-[#ffed4e] to-[#ffd700] hover:from-[#ffed4e] hover:via-[#ffd700] hover:to-[#ffed4e] text-[#2d1810] px-16 py-10 text-2xl md:text-3xl font-black shadow-[0_0_40px_rgba(255,215,0,0.8)] transform hover:scale-110 transition-all duration-300 border-4 border-[#9d4848] rounded-full"
+                      style={{ 
+                        textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+                        animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                      }}
                     >
-                      Узнать подробнее
+                      🎁 Узнать подробнее 🎁
                     </Button>
                   </div>
                 </div>
