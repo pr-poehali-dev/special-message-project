@@ -164,17 +164,23 @@ const Index = () => {
         </div>
       ))}
       {stage !== 'message' ? (
-        <div 
-          className={`absolute inset-0 cursor-pointer transition-opacity duration-600 ${
-            stage === 'opening' ? 'opacity-0' : 'opacity-100'
-          } ${stage === 'envelope' ? 'hover:scale-105' : ''} transition-transform duration-300`}
-          onClick={handleSealClick}
-        >
-          <img 
-            src="https://cdn.poehali.dev/projects/8e22820f-a067-420f-bc48-a499e65c5a34/files/581e6ee3-f05d-4ede-9a39-de79c4123045.jpg"
-            alt="Конверт с восковой печатью"
-            className="w-full h-full object-cover"
-          />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div 
+            className={`relative transition-opacity duration-600 ${
+              stage === 'opening' ? 'opacity-0' : 'opacity-100'
+            }`}
+          >
+            <div
+              className={`cursor-pointer ${stage === 'envelope' ? 'hover:scale-105' : ''} transition-transform duration-300`}
+              onClick={handleSealClick}
+            >
+              <img 
+                src="https://cdn.poehali.dev/files/7d89ea53-68de-4c78-8e71-728ba4aca4b4.jpg"
+                alt="Конверт с восковой печатью"
+                className="w-screen h-screen object-cover"
+              />
+            </div>
+          </div>
         </div>
       ) : (
         <div className="absolute inset-0 flex items-center justify-center p-4 animate-fade-in overflow-y-auto">
