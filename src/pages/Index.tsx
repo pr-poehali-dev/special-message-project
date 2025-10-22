@@ -35,29 +35,31 @@ const Index = () => {
 
   const createFireworks = () => {
     setParticles([]);
-    const colors = ['#e29563', '#ffd700', '#ffffff'];
+    const colors = ['#e29563', '#ffd700', '#ffffff', '#ff6b6b', '#4ecdc4'];
     
-    for (let wave = 0; wave < 5; wave++) {
+    for (let burst = 0; burst < 10; burst++) {
       setTimeout(() => {
-        const fireworks: Particle[] = [];
-        for (let i = 0; i < 20; i++) {
-          const angle = (Math.PI * 2 * i) / 20;
-          const speed = Math.random() * 200 + 200;
+        const burstParticles: Particle[] = [];
+        const particlesPerBurst = 10;
+        
+        for (let i = 0; i < particlesPerBurst; i++) {
+          const angle = (Math.PI * 2 * i) / particlesPerBurst + (burst * 0.3);
+          const speed = Math.random() * 150 + 180;
           
-          fireworks.push({
-            id: Date.now() + i + wave * 1000 + Math.random() * 100,
+          burstParticles.push({
+            id: Date.now() + burst * 1000 + i + Math.random() * 100,
             x: 50,
             y: 50,
             vx: Math.cos(angle) * speed,
             vy: Math.sin(angle) * speed,
-            rotation: 0,
-            size: Math.random() * 15 + 10,
+            rotation: Math.random() * 360,
+            size: Math.random() * 18 + 12,
             color: colors[Math.floor(Math.random() * colors.length)],
             shape: 'spark'
           });
         }
-        setParticles(prev => [...prev, ...fireworks]);
-      }, wave * 1000);
+        setParticles(prev => [...prev, ...burstParticles]);
+      }, burst * 500);
     }
   };
 
@@ -65,20 +67,21 @@ const Index = () => {
     setParticles([]);
     const colors = ['#ffd700', '#e29563', '#ffffff'];
     
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 70; i++) {
       setTimeout(() => {
+        const xPos = 10 + Math.random() * 80;
         setParticles(prev => [...prev, {
-          id: Date.now() + i + Math.random() * 1000,
-          x: Math.random() * 100,
-          y: -10,
-          vx: (Math.random() - 0.5) * 50,
-          vy: Math.random() * 80 + 40,
+          id: Date.now() + i + Math.random() * 10000,
+          x: xPos,
+          y: -5,
+          vx: (Math.random() - 0.5) * 30,
+          vy: Math.random() * 60 + 50,
           rotation: Math.random() * 360,
-          size: Math.random() * 30 + 25,
+          size: Math.random() * 35 + 30,
           color: colors[Math.floor(Math.random() * colors.length)],
           shape: 'star'
         }]);
-      }, i * 100);
+      }, i * 85);
     }
   };
 
@@ -91,20 +94,14 @@ const Index = () => {
           ...p,
           x: p.x + p.vx * 0.016,
           y: p.y + p.vy * 0.016,
-          vy: p.vy + (p.shape === 'star' ? 50 : 300) * 0.016,
-          rotation: p.rotation + 5
-        })).filter(p => p.y < 120 && p.y > -20)
+          vy: p.vy + (p.shape === 'star' ? 40 : 280) * 0.016,
+          rotation: p.rotation + (p.shape === 'star' ? 8 : 3)
+        })).filter(p => p.y < 130 && p.y > -10)
       );
     }, 16);
 
-    setTimeout(() => {
-      if (stage === 'firework') {
-        setParticles([]);
-      }
-    }, 6000);
-
     return () => clearInterval(interval);
-  }, [particles, stage]);
+  }, [particles]);
 
   const handleClose = () => {
     setStage('envelope');
