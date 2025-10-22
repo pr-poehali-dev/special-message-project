@@ -208,7 +208,7 @@ const Index = () => {
                       onClick={handleClose}
                       className="bg-gradient-to-r from-[#9d4848] to-[#c85a5a] hover:from-[#b35555] hover:to-[#d66868] text-white px-12 py-8 text-xl font-bold shadow-2xl transform hover:scale-110 transition-all duration-300 animate-pulse border-4 border-[#ffd700]"
                     >
-                      Забрать подарок! 🎁
+                      Узнать подробнее
                     </Button>
                   </div>
                 </div>
