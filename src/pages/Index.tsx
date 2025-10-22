@@ -220,7 +220,7 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="mt-12 p-8 shadow-xl border-4 border-[#9d4848]/30">
+            <div className="mt-12 p-8 shadow-xl border-4 border-[#9d4848]/30 relative z-20">
               <h2 className="text-3xl font-bold text-[#2d1810] mb-6 text-center" style={{ fontFamily: "'Playfair Display', serif", textShadow: '1px 1px 2px rgba(255,255,255,0.5)' }}>
                 Контакты
               </h2>
