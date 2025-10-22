@@ -190,7 +190,7 @@ const Index = () => {
                 <div className="text-center space-y-8">
                   <div className="mb-4 animate-bounce">
                     <img 
-                      src="https://cdn.poehali.dev/files/1eb5aa42-a943-443b-8876-6105d896ea20.png" 
+                      src="https://cdn.poehali.dev/files/cff17d45-d481-4e48-9d43-0fa558a03283.jpeg" 
                       alt="Подарок" 
                       className="w-32 h-32 md:w-40 md:h-40 mx-auto"
                     />
