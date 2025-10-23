@@ -190,9 +190,8 @@ const Index = () => {
               <div className="p-4 sm:p-8 md:p-16 shadow-2xl relative z-10 border-2 sm:border-4 border-[#9d4848]/30 bg-white/50 animate-slide-in-up">
                 <div className="text-center space-y-4 sm:space-y-6">
                   <div className="pt-4 sm:pt-8 md:pt-12"></div>
-                  <h1 
+                  <div 
                     className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight px-1 sm:px-2 uppercase break-words animate-slide-in-up"
-                    style={{ animationDelay: '0.2s', opacity: 0 }}
                     style={{ 
                       fontFamily: "'Playfair Display', serif",
                       background: 'linear-gradient(90deg, #9d4848 0%, #ffd700 25%, #2d1810 50%, #c85a5a 75%, #ffd700 100%)',
@@ -207,8 +206,10 @@ const Index = () => {
                       opacity: 0
                     }}
                   >
-                    Ты, звезда, выиграла приз от Кода публичности!
-                  </h1>
+                    ТЫ ЗВЕЗДА!!!!!
+                    <br />
+                    ТЫ ВЫИГРАЛА ПРИЗ ОТ  КОДА ПУБЛИЧНОСТИ
+                  </div>
 
                   <div className="pt-4 sm:pt-8 flex justify-center animate-slide-in-up" style={{ animationDelay: '0.4s', opacity: 0 }}>
                     <Button 
