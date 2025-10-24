@@ -211,23 +211,13 @@ const Index = () => {
                     ТЫ ВЫИГРАЛА ПРИЗ ОТ  КОДА ПУБЛИЧНОСТИ
                   </div>
 
-                  <div className="pt-4 sm:pt-8 flex justify-center animate-slide-in-up" style={{ animationDelay: '0.4s', opacity: 0 }}>
-                    <Button 
-                      onClick={handleClose}
-                      className="bg-gradient-to-r from-[#ffd700] via-[#ffed4e] to-[#ffd700] hover:from-[#ffed4e] hover:via-[#ffd700] hover:to-[#ffed4e] text-[#2d1810] px-6 sm:px-8 md:px-12 lg:px-16 py-4 sm:py-6 md:py-8 lg:py-10 text-lg sm:text-xl md:text-2xl lg:text-3xl font-black shadow-[0_0_30px_rgba(255,215,0,0.8),0_0_60px_rgba(255,215,0,0.4)] sm:shadow-[0_0_50px_rgba(255,215,0,1),0_0_100px_rgba(255,215,0,0.5)] transform hover:scale-105 sm:hover:scale-110 transition-all duration-300 border-2 sm:border-4 border-[#9d4848] rounded-full"
-                      style={{ 
-                        textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
-                      }}
-                    >
-                      🎁 Узнать подробнее 🎁
-                    </Button>
-                  </div>
+
                 </div>
               </div>
             </div>
 
             <footer className="text-center text-sm text-[#2d1810] font-semibold mt-8 pb-4" style={{ textShadow: '1px 1px 2px rgba(255,255,255,0.5)' }}>
-              © 2024 Код публичности
+              © 2025 Код публичности
             </footer>
           </div>
         </div>
