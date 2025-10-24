@@ -226,50 +226,6 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="mt-6 sm:mt-12 p-4 sm:p-8 md:p-12 shadow-xl border-2 sm:border-4 border-[#9d4848]/30 relative z-20 bg-white/60 animate-slide-in-up" style={{ animationDelay: '0.6s', opacity: 0 }}>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#2d1810] mb-6 sm:mb-10 text-center" style={{ fontFamily: "'Playfair Display', serif", textShadow: '2px 2px 4px rgba(255,255,255,0.8)' }}>
-                Контакты
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 text-center">
-                <div className="transform hover:scale-105 transition-all duration-300 animate-slide-in-left" style={{ animationDelay: '0.8s', opacity: 0 }}>
-                  <h3 className="font-bold text-[#2d1810] mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">📱 Телефон / WhatsApp</h3>
-                  <a 
-                    href="https://wa.me/79147043536"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block w-full sm:w-auto text-[#1a0f08] hover:text-white bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#128C7E] hover:to-[#25D366] font-black text-lg sm:text-xl md:text-2xl px-4 sm:px-6 py-3 sm:py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
-                    style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}
-                  >
-                    +7 (914) 704-35-36
-                  </a>
-                </div>
-                <div className="transform hover:scale-105 transition-all duration-300 animate-slide-in-up" style={{ animationDelay: '1s', opacity: 0 }}>
-                  <h3 className="font-bold text-[#2d1810] mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">📍 Адрес</h3>
-                  <a 
-                    href="https://2gis.ru/vladivostok/firm/70000001035564383" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="inline-block w-full sm:w-auto text-white bg-gradient-to-r from-[#9d4848] to-[#c85a5a] hover:from-[#b35555] hover:to-[#d66868] font-black text-lg sm:text-xl md:text-2xl px-4 sm:px-6 py-3 sm:py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
-                    style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}
-                  >
-                    Ангар Edwin Group
-                  </a>
-                </div>
-                <div className="transform hover:scale-105 transition-all duration-300 animate-slide-in-right" style={{ animationDelay: '1.2s', opacity: 0 }}>
-                  <h3 className="font-bold text-[#2d1810] mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">🌐 Веб-сайт</h3>
-                  <a 
-                    href="https://kodpublichnosti-vl.ru/networking" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="inline-block w-full sm:w-auto text-white bg-gradient-to-r from-[#2d1810] to-[#4a2f20] hover:from-[#4a2f20] hover:to-[#2d1810] font-black text-lg sm:text-xl md:text-2xl px-4 sm:px-6 py-3 sm:py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 break-all"
-                    style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}
-                  >
-                    kodpublichnosti-vl.ru
-                  </a>
-                </div>
-              </div>
-            </div>
-
             <footer className="text-center text-sm text-[#2d1810] font-semibold mt-8 pb-4" style={{ textShadow: '1px 1px 2px rgba(255,255,255,0.5)' }}>
               © 2024 Код публичности
             </footer>
